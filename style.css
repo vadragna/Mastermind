@@ -1,0 +1,118 @@
+body {
+  background-color: lightgray;
+}
+
+#board {
+  margin-left: 50px;
+  display: flex;
+  position: relative;
+}
+
+.slot {
+  transform: translateY(-40px, -40px);
+  overflow: hidden;
+  width: 70px;
+  height: 70px;
+}
+
+.hole {
+  border: 40px solid slategray;
+  width: 60px;
+  height: 60px;
+  transform: translate(-35px, -35px);
+  border-radius: 50%;
+}
+
+.result {
+  border: 1px solid white;
+  width: 15px;
+  height: 15px;
+  /* transform: translate(-35px, -35px); */
+  border-radius: 50%;
+}
+
+.little.hole {
+  width: 35px;
+  height: 35px;
+}
+
+.column.results {
+  background-color: Grey;
+  width: 18px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.slot {
+  margin-top: 10px;
+}
+
+.slot.row0 {
+  margin-top: 0;
+}
+
+.instructions {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.box {
+  width: 35px;
+  height: 35px;
+}
+
+.blue {
+  background-color: blue;
+}
+.aqua {
+  background-color: aqua;
+}
+.hotpink {
+  background-color: hotpink;
+}
+.lime {
+  background-color: lime;
+}
+.yellow {
+  background-color: yellow;
+}
+.indigo {
+  background-color: indigo;
+}
+.maroon {
+  background-color: maroon;
+}
+.black {
+  background-color: black;
+}
+
+#checkButton {
+  margin-left: 95px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 10px;
+  border: 1px solid #4e6096;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 19px;
+  padding: 12px 37px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+}
+#checkButton:hover {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+#checkButton:active {
+  position: relative;
+  top: 1px;
+}
