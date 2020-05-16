@@ -28,8 +28,9 @@
           continue;
         }
         if (
+          rowToCheck.eq(i) &&
           rowToCheck.eq(i).prop("classList")[2] ===
-          keyRow.eq(j).prop("classList")[3]
+            keyRow.eq(j).prop("classList")[3]
         ) {
           console.log(
             rowToCheck.eq(i).prop("classList")[2],
@@ -42,13 +43,11 @@
             dontCheck.push(j);
             positionsToCheck.splice(i, 1);
             KeyToCheck.splice(j, 1);
-            i++;
           } else {
             sameColor++;
             dontCheck.push(j);
             positionsToCheck.splice(i, 1);
             KeyToCheck.splice(j, 1);
-            i++;
           }
         }
       }
