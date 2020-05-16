@@ -84,11 +84,18 @@ body {
 .indigo {
   background-color: indigo;
 }
-.maroon {
-  background-color: maroon;
+.red {
+  background-color: red;
 }
 .black {
   background-color: black;
+}
+
+#keys {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+  margin-left: 50px;
 }
 
 #checkButton {
