@@ -27,27 +27,9 @@
         rowToCheck.eq(i).prop("classList")[2] ===
           keyRow.eq(i).prop("classList")[3]
       ) {
-        for (let i = 0; i < resultsHoles.length; i++) {
-          if (
-            !resultsHoles.eq(i).hasClass("yellow") &&
-            !resultsHoles.eq(i).hasClass("green")
-          ) {
-            resultsHoles.eq(i).addClass("green");
-            break;
-          }
-        }
         samePosition++;
         positionsToCheck--;
         if (!keysToCheck[i]) {
-          for (let i = 0; i < resultsHoles.length; i++) {
-            if (
-              !resultsHoles.eq(i).hasClass("yellow") &&
-              !resultsHoles.eq(i).hasClass("green")
-            ) {
-              resultsHoles.eq(i).removeClass("green");
-              break;
-            }
-          }
           sameColor--;
         }
         keysToCheck[i] = false;
@@ -73,15 +55,6 @@
             j
           );
           if (i != j) {
-            for (let i = 0; i < resultsHoles.length; i++) {
-              if (
-                !resultsHoles.eq(i).hasClass("yellow") &&
-                !resultsHoles.eq(i).hasClass("green")
-              ) {
-                resultsHoles.eq(i).addClass("yellow");
-                break;
-              }
-            }
             sameColor++;
             positionsToCheck--;
             keysToCheck[j] = false;
@@ -93,9 +66,24 @@
     if (samePosition == 4) {
       console.log("won");
       $("#keys").css("visibility", "visible");
+      $("#alert").css("visibility", "visible");
     }
     console.log("sameColor", sameColor, "samePosition", samePosition);
-    // $(".r" + target);
+    for (let i = 0; i < resultsHoles.length; i++) {
+      if (
+        !resultsHoles.eq(i).hasClass("yellow") &&
+        !resultsHoles.eq(i).hasClass("green")
+      ) {
+        if (samePosition > 0) {
+          resultsHoles.eq(i).addClass("green");
+          samePosition--;
+        } else {
+          if (sameColor > 0) {
+            resultsHoles.eq(i).addClass("yellow");
+          }
+        }
+      }
+    }
     target--;
   });
 
@@ -117,5 +105,8 @@
       }
     }
     targetSlot.eq(target).addClass(colors[0]);
+  });
+  $("#reload").on("click", function () {
+    location.reload();
   });
 })();

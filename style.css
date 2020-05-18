@@ -92,11 +92,21 @@ body {
 }
 
 #keys {
-  /* visibility: hidden; */
+  visibility: hidden;
   display: flex;
   margin-top: 10px;
   flex-direction: row;
   margin-left: 50px;
+}
+#alert {
+  visibility: hidden;
+  position: absolute;
+  top: 200px;
+  height: 50%;
+  width: 50%;
+  background-color: thistle;
+  border: 1px white solid;
+  z-index: 2;
 }
 
 #checkButton {
