@@ -10,6 +10,7 @@
     "red",
     "black",
   ];
+  let instructions = $(".instructions");
 
   $("#checkButton").on("click", function (e) {
     let resultsHoles = $(".r" + target).children();
@@ -126,5 +127,16 @@
   });
   $(".close").on("click", function () {
     $("#alert").css("visibility", "hidden");
+  });
+
+  instructions.children().on("click", function (e) {
+    let rowToCheck = $(".row" + target);
+    for (let i = 0; i < rowToCheck.length; i++) {
+      if (rowToCheck.eq(i).prop("classList").length < 3) {
+        rowToCheck.eq(i).addClass($(e.target).prop("classList")[1]);
+        break;
+      }
+    }
+    console.log($(e.target).prop("classList")[1]);
   });
 })();
