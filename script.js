@@ -10,55 +10,61 @@
     "red",
     "black",
   ];
-  keysToCheck0 = true;
-  keysToCheck1 = true;
-  keysToCheck2 = true;
-  keysToCheck3 = true;
 
   $("#checkButton").on("click", function (e) {
+    let resultsHoles = $(".r" + target).children();
     var sameColor = 0;
     var samePosition = 0;
-    var dontCheck = [];
     let rowToCheck = $(".row" + target);
     let keyRow = $(".key");
-    let keyToCheck = [true, true, true, true];
-    let positionsToCheck = [0, 1, 2, 3];
+    let keysToCheck = [true, true, true, true];
+    let positionsToCheck = 4;
 
     for (var i = 0; i <= 3; i++) {
-      console.log("positionsToCheck", positionsToCheck, "");
+      console.log("positionsToCheck", positionsToCheck);
       if (
         rowToCheck.eq(i) &&
         rowToCheck.eq(i).prop("classList")[2] ===
           keyRow.eq(i).prop("classList")[3]
       ) {
+        for (let i = 0; i < resultsHoles.length; i++) {
+          if (
+            !resultsHoles.eq(i).hasClass("yellow") &&
+            !resultsHoles.eq(i).hasClass("green")
+          ) {
+            resultsHoles.eq(i).addClass("green");
+            break;
+          }
+        }
         samePosition++;
-        dontCheck.push(i);
-        positionsToCheck.splice(i, 1);
-        if (!keyToCheck[i]) {
+        positionsToCheck--;
+        if (!keysToCheck[i]) {
+          for (let i = 0; i < resultsHoles.length; i++) {
+            if (
+              !resultsHoles.eq(i).hasClass("yellow") &&
+              !resultsHoles.eq(i).hasClass("green")
+            ) {
+              resultsHoles.eq(i).removeClass("green");
+              break;
+            }
+          }
           sameColor--;
         }
-        keyToCheck[i] = false;
+        keysToCheck[i] = false;
         continue;
       }
       for (var j = 0; j <= 3; j++) {
-        console.log(
-          "i",
-          i,
-          "j",
-          j,
-          "positionsToCheck.length",
-          positionsToCheck.length
-        );
+        console.log("i", i, "j", j, "positionsToCheck", positionsToCheck);
 
-        if (positionsToCheck.length + i < 4) {
-          console.log("continue", positionsToCheck.length, i);
+        if (positionsToCheck + i < 4) {
+          console.log("continue", positionsToCheck, i);
           continue;
         }
         if (
           rowToCheck.eq(i) &&
           rowToCheck.eq(i).prop("classList")[2] ===
             keyRow.eq(j).prop("classList")[3] &&
-          keyToCheck[j]
+          keysToCheck[j]
         ) {
           console.log(
             rowToCheck.eq(i).prop("classList")[2],
@@ -67,24 +73,29 @@
             j
           );
           if (i != j) {
+            for (let i = 0; i < resultsHoles.length; i++) {
+              if (
+                !resultsHoles.eq(i).hasClass("yellow") &&
+                !resultsHoles.eq(i).hasClass("green")
+              ) {
+                resultsHoles.eq(i).addClass("yellow");
+                break;
+              }
+            }
             sameColor++;
-            dontCheck.push(j);
-            positionsToCheck.splice(i, 1);
-            keyToCheck[j] = false;
+            positionsToCheck--;
+            keysToCheck[j] = false;
             j = 4;
           }
         }
       }
     }
-
-    console.log(
-      "sameColor",
-      sameColor,
-      "samePosition",
-      samePosition,
-      "dontCheck",
-      dontCheck
-    );
+    if (samePosition == 4) {
+      console.log("won");
+      $("#keys").css("visibility", "visible");
+    }
+    console.log("sameColor", sameColor, "samePosition", samePosition);
+    // $(".r" + target);
     target--;
   });
 
@@ -92,6 +103,7 @@
     let random = Math.floor(Math.random() * 8);
     let keyBox = $(".key" + i);
     keyBox.addClass(colors[random]);
+    console.log(colors[random]);
   }
 
   $(".column").on("click", function (e) {
@@ -104,7 +116,6 @@
         return;
       }
     }
-
     targetSlot.eq(target).addClass(colors[0]);
   });
 })();
