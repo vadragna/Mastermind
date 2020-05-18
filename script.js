@@ -16,6 +16,15 @@
     var sameColor = 0;
     var samePosition = 0;
     let rowToCheck = $(".row" + target);
+    console.log("rowToCheck", rowToCheck);
+
+    for (let i = 0; i < rowToCheck.length; i++) {
+      console.log(rowToCheck.eq(i).prop("classList").length);
+      if (rowToCheck.eq(i).prop("classList").length < 3) {
+        $("#alert").css("visibility", "visible");
+        return;
+      }
+    }
     let keyRow = $(".key");
     let keysToCheck = [true, true, true, true];
     let positionsToCheck = 4;
@@ -66,7 +75,8 @@
     if (samePosition == 4) {
       console.log("won");
       $("#keys").css("visibility", "visible");
-      $("#alert").css("visibility", "visible");
+      $("#victory").css("visibility", "visible");
+      return;
     }
     console.log("sameColor", sameColor, "samePosition", samePosition);
     for (let i = 0; i < resultsHoles.length; i++) {
@@ -80,11 +90,16 @@
         } else {
           if (sameColor > 0) {
             resultsHoles.eq(i).addClass("yellow");
+            sameColor--;
           }
         }
       }
     }
-    target--;
+    if (target >= 1) {
+      target--;
+    } else {
+      $("#gameOver").css("visibility", "visible");
+    }
   });
 
   for (let i = 0; i <= 3; i++) {
@@ -106,7 +121,10 @@
     }
     targetSlot.eq(target).addClass(colors[0]);
   });
-  $("#reload").on("click", function () {
+  $(".reload").on("click", function () {
     location.reload();
+  });
+  $(".close").on("click", function () {
+    $("#alert").css("visibility", "hidden");
   });
 })();

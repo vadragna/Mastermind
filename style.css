@@ -5,6 +5,7 @@ body {
 #board {
   margin-left: 50px;
   display: flex;
+  position: 10px;
   position: relative;
 }
 
@@ -62,6 +63,11 @@ body {
   height: 35px;
 }
 
+.results {
+  position: relative;
+  bottom: 10px;
+}
+
 .blue {
   background-color: blue;
 }
@@ -98,7 +104,7 @@ body {
   flex-direction: row;
   margin-left: 50px;
 }
-#alert {
+.alertBox {
   visibility: hidden;
   position: absolute;
   top: 200px;
