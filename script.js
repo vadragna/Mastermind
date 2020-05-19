@@ -145,6 +145,5 @@
         break;
       }
     }
-    console.log($(e.target).prop("classList")[1]);
   });
 })();
