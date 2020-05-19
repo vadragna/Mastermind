@@ -1,5 +1,6 @@
 # Mastermind
 
+![](/screen.png)
 ![](/https://media.giphy.com/media/M9fmysxghlIgpMW9dh/giphy.gif)
 
 ## Summary
