@@ -1,6 +1,6 @@
 # Mastermind
 
-![](/gif.mp4)
+![](/https://media.giphy.com/media/M9fmysxghlIgpMW9dh/giphy.gif)
 
 ## Summary
 
