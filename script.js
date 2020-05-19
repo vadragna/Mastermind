@@ -123,6 +123,7 @@
     let random = Math.floor(Math.random() * 8);
     let keyBox = $(".key" + i);
     keyBox.addClass(colors[random]);
+    console.log(colors[random]);
   }
 
   $(".column").on("click", function (e) {

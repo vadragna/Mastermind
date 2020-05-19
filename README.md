@@ -1,6 +1,6 @@
 # Mastermind
 
-![](/screen.png)
+![](/git.mp4)
 
 ## Summary
 
