@@ -31,9 +31,11 @@
     }
     let keyRow = $(".key");
     let keysToCheck = [true, true, true, true];
+    let combinations = {};
     let positionsToCheck = 4;
 
     for (var i = 0; i <= 3; i++) {
+      console.log("combinations", combinations);
       console.log("positionsToCheck", positionsToCheck);
       if (
         rowToCheck.eq(i) &&
@@ -43,6 +45,30 @@
         samePosition++;
         positionsToCheck--;
         if (!keysToCheck[i]) {
+          let dobleCheck = combinations[i];
+          console.log(
+            "dobleCheck",
+            dobleCheck,
+            $(rowToCheck[dobleCheck]).prop("classList")[2],
+            'rowToCheck[dobleCheck].prop("classList")[2]'
+          );
+          if (dobleCheck || dobleCheck == 0) {
+            for (let k = 0; k <= 3; k++) {
+              console.log(
+                $(rowToCheck[dobleCheck]).prop("classList")[2],
+                keyRow.eq(k).prop("classList")[3]
+              );
+              if (
+                $(rowToCheck[dobleCheck]).prop("classList")[2] ===
+                  keyRow.eq(k).prop("classList")[3] &&
+                keysToCheck[k]
+              ) {
+                keysToCheck[k] = false;
+                sameColor++;
+                console.log("sameColor++ in doble check");
+              }
+            }
+          }
           sameColor--;
         }
         keysToCheck[i] = false;
@@ -50,7 +76,6 @@
       }
       for (var j = 0; j <= 3; j++) {
         console.log("i", i, "j", j, "positionsToCheck", positionsToCheck);
-
         if (positionsToCheck + i < 4) {
           console.log("continue", positionsToCheck, i);
           continue;
@@ -71,6 +96,7 @@
             sameColor++;
             positionsToCheck--;
             keysToCheck[j] = false;
+            combinations[j] = i;
             j = 4;
           }
         }
