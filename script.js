@@ -20,7 +20,6 @@
     var sameColor = 0;
     var samePosition = 0;
     let rowToCheck = $(".row" + target);
-    console.log("rowToCheck", rowToCheck);
 
     for (let i = 0; i < rowToCheck.length; i++) {
       console.log(rowToCheck.eq(i).prop("classList").length);
@@ -35,8 +34,6 @@
     let positionsToCheck = 4;
 
     for (var i = 0; i <= 3; i++) {
-      console.log("combinations", combinations);
-      console.log("positionsToCheck", positionsToCheck);
       if (
         rowToCheck.eq(i) &&
         rowToCheck.eq(i).prop("classList")[2] ===
@@ -54,10 +51,6 @@
           );
           if (dobleCheck || dobleCheck == 0) {
             for (let k = 0; k <= 3; k++) {
-              console.log(
-                $(rowToCheck[dobleCheck]).prop("classList")[2],
-                keyRow.eq(k).prop("classList")[3]
-              );
               if (
                 $(rowToCheck[dobleCheck]).prop("classList")[2] ===
                   keyRow.eq(k).prop("classList")[3] &&
@@ -75,7 +68,6 @@
         continue;
       }
       for (var j = 0; j <= 3; j++) {
-        console.log("i", i, "j", j, "positionsToCheck", positionsToCheck);
         if (positionsToCheck + i < 4) {
           console.log("continue", positionsToCheck, i);
           continue;
@@ -86,12 +78,6 @@
             keyRow.eq(j).prop("classList")[3] &&
           keysToCheck[j]
         ) {
-          console.log(
-            rowToCheck.eq(i).prop("classList")[2],
-            keyRow.eq(j).prop("classList")[3],
-            i,
-            j
-          );
           if (i != j) {
             sameColor++;
             positionsToCheck--;
@@ -103,7 +89,6 @@
       }
     }
     if (samePosition == 4) {
-      console.log("won");
       $("#keys").css("visibility", "visible");
       $("#victory").css("visibility", "visible");
       return;
@@ -138,7 +123,6 @@
     let random = Math.floor(Math.random() * 8);
     let keyBox = $(".key" + i);
     keyBox.addClass(colors[random]);
-    console.log(colors[random]);
   }
 
   $(".column").on("click", function (e) {
