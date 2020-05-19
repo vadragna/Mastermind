@@ -11,6 +11,9 @@
     "black",
   ];
   let instructions = $(".instructions");
+  let newCoinSound = new Audio("./sounds/newCoin.mp3");
+  let samePositionSound = new Audio("./sounds/samePosition.mp3");
+  let sameColorSound = new Audio("./sounds/sameColor.mp3");
 
   $("#checkButton").on("click", function (e) {
     let resultsHoles = $(".r" + target).children();
@@ -88,10 +91,12 @@
         if (samePosition > 0) {
           resultsHoles.eq(i).addClass("green");
           samePosition--;
+          samePositionSound.play();
         } else {
           if (sameColor > 0) {
             resultsHoles.eq(i).addClass("yellow");
             sameColor--;
+            sameColorSound.play();
           }
         }
       }
@@ -117,10 +122,12 @@
       if (targetSlot.eq(target).hasClass(colors[i])) {
         targetSlot.eq(target).removeClass(colors[i]);
         targetSlot.eq(target).addClass(colors[i + 1]);
+        newCoinSound.play();
         return;
       }
     }
     targetSlot.eq(target).addClass(colors[0]);
+    newCoinSound.play();
   });
   $(".reload").on("click", function () {
     location.reload();
@@ -134,6 +141,7 @@
     for (let i = 0; i < rowToCheck.length; i++) {
       if (rowToCheck.eq(i).prop("classList").length < 3) {
         rowToCheck.eq(i).addClass($(e.target).prop("classList")[1]);
+        newCoinSound.play();
         break;
       }
     }

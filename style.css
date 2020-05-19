@@ -99,7 +99,7 @@ body {
 }
 
 #keys {
-  visibility: hidden;
+  /* visibility: hidden; */
   display: flex;
   margin-top: 10px;
   flex-direction: row;
