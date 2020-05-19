@@ -1,4 +1,4 @@
-# Connect four
+# Mastermind
 
 ![](/screen.png)
 
