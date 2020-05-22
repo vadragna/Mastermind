@@ -1,6 +1,8 @@
 body {
   background-color: lightgray;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #board {
@@ -102,6 +104,34 @@ h1 {
   font-family: "Chelsea Market", cursive;
   color: teal;
 }
+h3 {
+  font-family: "Chelsea Market", cursive;
+  background-image: linear-gradient(
+    to left,
+    black,
+    red,
+    indigo,
+    yellow,
+    lime,
+    hotpink,
+    aqua,
+    blue
+  );
+  font-size: 15px;
+  width: 280px;
+  color: white;
+}
+h4 {
+  font-size: 12px;
+  color: rgba(33, 16, 49, 0.945);
+  font-family: "Chelsea Market", cursive;
+  display: inline;
+  margin-left: 5px;
+}
+
+.result.legend {
+  margin-right: 5px;
+}
 
 #keys {
   visibility: hidden;
@@ -124,6 +154,24 @@ h1 {
   background-color: thistle;
   border: 1px white solid;
   z-index: 2;
+}
+
+.inline {
+  display: inline;
+}
+
+.legendBox {
+  margin-top: 10px;
+  width: 300px;
+  background-color: thistle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.marginLeft {
+  margin-left: 50px;
 }
 
 .box:hover {
