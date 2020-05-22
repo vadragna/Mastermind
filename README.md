@@ -14,4 +14,6 @@ Project done completely independently without following any particular tutorial 
 - JavaScript
 - jQuery
 
+Deployed on https://happy-franklin-b28668.netlify.app/
+
 Sound effects obtained from https://www.zapsplat.com
