@@ -126,7 +126,6 @@ h4 {
   color: rgba(33, 16, 49, 0.945);
   font-family: "Chelsea Market", cursive;
   display: inline;
-  margin-left: 5px;
 }
 
 .result.legend {
@@ -162,7 +161,7 @@ h4 {
 
 .legendBox {
   margin-top: 10px;
-  width: 300px;
+  width: 270px;
   background-color: thistle;
   display: flex;
   align-items: center;
@@ -203,6 +202,6 @@ h4 {
   top: 1px;
 }
 #checkButton {
-  margin-left: 95px;
+  margin-left: 100px;
   margin-top: 10px;
 }

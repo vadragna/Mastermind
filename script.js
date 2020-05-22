@@ -23,7 +23,6 @@
     let rowToCheck = $(".row" + target);
 
     for (let i = 0; i < rowToCheck.length; i++) {
-      console.log(rowToCheck.eq(i).prop("classList").length);
       if (rowToCheck.eq(i).prop("classList").length < 3) {
         $("#alert").css("visibility", "visible");
         return;
@@ -44,12 +43,6 @@
         positionsToCheck--;
         if (!keysToCheck[i]) {
           let dobleCheck = combinations[i];
-          console.log(
-            "dobleCheck",
-            dobleCheck,
-            $(rowToCheck[dobleCheck]).prop("classList")[2],
-            'rowToCheck[dobleCheck].prop("classList")[2]'
-          );
           if (dobleCheck || dobleCheck == 0) {
             for (let k = 0; k <= 3; k++) {
               if (
@@ -59,7 +52,6 @@
               ) {
                 keysToCheck[k] = false;
                 sameColor++;
-                console.log("sameColor++ in doble check");
               }
             }
           }
@@ -70,7 +62,6 @@
       }
       for (var j = 0; j <= 3; j++) {
         if (positionsToCheck + i < 4) {
-          console.log("continue", positionsToCheck, i);
           continue;
         }
         if (
@@ -94,7 +85,6 @@
       $("#victory").css("visibility", "visible");
       return;
     }
-    console.log("sameColor", sameColor, "samePosition", samePosition);
     for (let i = 0; i < resultsHoles.length; i++) {
       if (
         !resultsHoles.eq(i).hasClass("yellow") &&
@@ -128,7 +118,6 @@
     let random = Math.floor(Math.random() * 8);
     let keyBox = $(".key" + i);
     keyBox.addClass(colors[random]);
-    console.log(colors[random]);
   }
 
   $(".column").on("click", function (e) {
