@@ -1,15 +1,23 @@
+* {
+  margin-left: 0;
+}
+
 body {
   background-color: lightgray;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 #board {
+  margin-top: 180px;
+  bottom: 170px;
   margin-left: 50px;
   display: flex;
   position: 10px;
   position: relative;
+  overflow-y: scroll;
 }
 
 .slot {
@@ -127,6 +135,19 @@ h4 {
   font-family: "Chelsea Market", cursive;
   display: inline;
 }
+.fixed {
+  background-color: lightgray;
+  z-index: 2;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#info {
+  position: absolute;
+  right: 5%;
+}
 
 .result.legend {
   margin-right: 5px;
@@ -160,6 +181,10 @@ h4 {
 }
 
 .legendBox {
+  visibility: hidden;
+  bottom: 0%;
+  z-index: 40;
+  position: absolute;
   margin-top: 10px;
   width: 270px;
   background-color: thistle;
@@ -176,6 +201,12 @@ h4 {
 .box:hover {
   cursor: pointer;
   transform: scale(1.3, 1.3);
+}
+
+#x {
+  position: absolute;
+  top: 5%;
+  left: 5%;
 }
 
 .button {

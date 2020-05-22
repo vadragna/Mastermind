@@ -141,6 +141,14 @@
     $("#alert").css("visibility", "hidden");
   });
 
+  $("#info").on("click", function () {
+    $(".legendBox").css("visibility", "visible");
+  });
+
+  $("#x").on("click", function () {
+    $(".legendBox").css("visibility", "hidden");
+  });
+
   instructions.children().on("click", function (e) {
     let rowToCheck = $(".row" + target);
     for (let i = 0; i < rowToCheck.length; i++) {
