@@ -98,6 +98,11 @@ body {
   background-color: green;
 }
 
+h1 {
+  font-family: "Chelsea Market", cursive;
+  color: teal;
+}
+
 #keys {
   visibility: hidden;
   display: flex;

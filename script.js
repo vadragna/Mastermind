@@ -14,6 +14,7 @@
   let newCoinSound = new Audio("./sounds/newCoin.mp3");
   let samePositionSound = new Audio("./sounds/samePosition.mp3");
   let sameColorSound = new Audio("./sounds/sameColor.mp3");
+  let wrongSound = new Audio("./sounds/wrong.mp3");
 
   $("#checkButton").on("click", function (e) {
     let resultsHoles = $(".r" + target).children();
@@ -98,7 +99,11 @@
       if (
         !resultsHoles.eq(i).hasClass("yellow") &&
         !resultsHoles.eq(i).hasClass("green")
-      ) {
+      )
+        if (!samePosition && !sameColor) {
+          wrongSound.play();
+        }
+      {
         if (samePosition > 0) {
           resultsHoles.eq(i).addClass("green");
           samePosition--;
