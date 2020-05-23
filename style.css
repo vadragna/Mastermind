@@ -145,6 +145,7 @@ h4 {
 }
 
 #info {
+  cursor: pointer;
   right: 5%;
   margin-left: 8px;
 }
@@ -204,6 +205,7 @@ h4 {
 }
 
 #x {
+  cursor: pointer;
   position: absolute;
   top: 5%;
   left: 5%;

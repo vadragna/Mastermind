@@ -11,10 +11,14 @@
     "black",
   ];
   let instructions = $(".instructions");
+
   let newCoinSound = new Audio("./sounds/newCoin.mp3");
   let samePositionSound = new Audio("./sounds/samePosition.mp3");
   let sameColorSound = new Audio("./sounds/sameColor.mp3");
   let wrongSound = new Audio("./sounds/wrong.mp3");
+  let backgroudSound = new Audio("./sounds/background.mp3");
+  backgroudSound.controls = true;
+  let isPlaying = false;
 
   $("#checkButton").on("click", function (e) {
     let resultsHoles = $(".r" + target).children();
@@ -134,9 +138,11 @@
     targetSlot.eq(target).addClass(colors[0]);
     newCoinSound.play();
   });
+
   $(".reload").on("click", function () {
     location.reload();
   });
+
   $(".close").on("click", function () {
     $("#alert").css("visibility", "hidden");
   });
@@ -150,6 +156,9 @@
   });
 
   instructions.children().on("click", function (e) {
+    if (!!e.currentTarget.id) {
+      return;
+    }
     let rowToCheck = $(".row" + target);
     for (let i = 0; i < rowToCheck.length; i++) {
       if (rowToCheck.eq(i).prop("classList").length < 3) {
@@ -157,6 +166,20 @@
         newCoinSound.play();
         break;
       }
+    }
+  });
+  $("#music").on("click", function () {
+    if (!isPlaying) {
+      backgroudSound.play();
+      isPlaying = true;
+      $("#music").html("PAUSE BACKGROUND MUSIC");
+      return;
+    }
+    if (isPlaying) {
+      console.log("isPlaying", isPlaying);
+      backgroudSound.pause();
+      isPlaying = false;
+      $("#music").html("PLAY BACKGROUND MUSIC");
     }
   });
 })();
