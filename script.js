@@ -28,6 +28,7 @@
           $(".instructions").children().eq(i).css("visibility", "hidden");
         }
         $(".settingsBox").css("visibility", "hidden");
+        $("#medium").css("opacity", 1);
       }
       if (level === "easy") {
         colors = ["blue", "aqua", "hotpink", "lime", "yellow", "indigo"];
@@ -208,6 +209,9 @@
   });
 
   $(".x").on("click", function () {
+    if (!level) {
+      return;
+    }
     $(".legendBox").css("visibility", "hidden");
     $(".settingsBox").css("visibility", "hidden");
   });
