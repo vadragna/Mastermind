@@ -195,6 +195,24 @@ h4 {
   flex-direction: column;
 }
 
+.settingsBox {
+  visibility: hidden;
+  bottom: 0%;
+  z-index: 40;
+  position: absolute;
+  margin-top: 10px;
+  width: 270px;
+  background-color: thistle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#settings {
+  cursor: pointer;
+}
+
 .marginLeft {
   margin-left: 50px;
 }

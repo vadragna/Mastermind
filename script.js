@@ -182,4 +182,8 @@
       $("#music").html("PLAY BACKGROUND MUSIC");
     }
   });
+
+  $("#settings").on("click", function () {
+    $(".settingsBox").css("visibility", "visible");
+  });
 })();
