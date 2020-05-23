@@ -19,6 +19,7 @@
   let backgroudSound = new Audio("./sounds/background.mp3");
   backgroudSound.controls = true;
   let isPlaying = false;
+  let effects = true;
 
   $("#checkButton").on("click", function (e) {
     let resultsHoles = $(".r" + target).children();
@@ -94,19 +95,23 @@
         !resultsHoles.eq(i).hasClass("yellow") &&
         !resultsHoles.eq(i).hasClass("green")
       )
-        if (!samePosition && !sameColor) {
+        if (!samePosition && !sameColor && effects) {
           wrongSound.play();
         }
       {
         if (samePosition > 0) {
           resultsHoles.eq(i).addClass("green");
           samePosition--;
-          samePositionSound.play();
+          if (effects) {
+            samePositionSound.play();
+          }
         } else {
           if (sameColor > 0) {
             resultsHoles.eq(i).addClass("yellow");
             sameColor--;
-            sameColorSound.play();
+            if (effects) {
+              sameColorSound.play();
+            }
           }
         }
       }
@@ -131,12 +136,16 @@
       if (targetSlot.eq(target).hasClass(colors[i])) {
         targetSlot.eq(target).removeClass(colors[i]);
         targetSlot.eq(target).addClass(colors[i + 1]);
-        newCoinSound.play();
+        if (effects) {
+          newCoinSound.play();
+        }
         return;
       }
     }
     targetSlot.eq(target).addClass(colors[0]);
-    newCoinSound.play();
+    if (effects) {
+      newCoinSound.play();
+    }
   });
 
   $(".reload").on("click", function () {
@@ -151,8 +160,9 @@
     $(".legendBox").css("visibility", "visible");
   });
 
-  $("#x").on("click", function () {
+  $(".x").on("click", function () {
     $(".legendBox").css("visibility", "hidden");
+    $(".settingsBox").css("visibility", "hidden");
   });
 
   instructions.children().on("click", function (e) {
@@ -163,7 +173,9 @@
     for (let i = 0; i < rowToCheck.length; i++) {
       if (rowToCheck.eq(i).prop("classList").length < 3) {
         rowToCheck.eq(i).addClass($(e.target).prop("classList")[1]);
-        newCoinSound.play();
+        if (effects) {
+          newCoinSound.play();
+        }
         break;
       }
     }
@@ -185,5 +197,17 @@
 
   $("#settings").on("click", function () {
     $(".settingsBox").css("visibility", "visible");
+  });
+
+  $("#effects").on("click", function () {
+    if (effects) {
+      effects = false;
+      $("#effects").html("SOUND EFFECTS ON");
+      return;
+    }
+    if (!effects) {
+      effects = true;
+      $("#effects").html("SOUND EFFECTS OFF");
+    }
   });
 })();
