@@ -1,26 +1,68 @@
 (function () {
   let target = 9;
-  let level = "medium";
+  let level;
+  let colors;
 
   $("#levels")
     .children()
     .on("click", function (e) {
+      if (level) {
+        return;
+      }
       level = e.currentTarget.id;
       console.log("level", level);
+      if (level == "medium") {
+        colors = [
+          "blue",
+          "aqua",
+          "hotpink",
+          "lime",
+          "yellow",
+          "indigo",
+          "red",
+          "black",
+        ];
+        console.log("level");
+        randomCode();
+        for (i = 8; i <= 9; i++) {
+          $(".instructions").children().eq(i).css("visibility", "hidden");
+        }
+        $(".settingsBox").css("visibility", "hidden");
+      }
+      if (level === "easy") {
+        colors = ["blue", "aqua", "hotpink", "lime", "yellow", "indigo"];
+        randomCode();
+        $(".settingsBox").css("visibility", "hidden");
+        for (i = 6; i <= 9; i++) {
+          $(".instructions").children().eq(i).css("visibility", "hidden");
+        }
+      }
+      if (level === "hard") {
+        colors = [
+          "blue",
+          "aqua",
+          "hotpink",
+          "lime",
+          "yellow",
+          "indigo",
+          "red",
+          "black",
+          "teal",
+          "saddlebrown",
+        ];
+        randomCode();
+        $(".settingsBox").css("visibility", "hidden");
+      }
     });
 
-  if (level === "medium") {
-    var colors = [
-      "blue",
-      "aqua",
-      "hotpink",
-      "lime",
-      "yellow",
-      "indigo",
-      "red",
-      "black",
-    ];
+  function randomCode() {
+    for (let i = 0; i <= 3; i++) {
+      let random = Math.floor(Math.random() * colors.length);
+      let keyBox = $(".key" + i);
+      keyBox.addClass(colors[random]);
+    }
   }
+
   let instructions = $(".instructions");
 
   let newCoinSound = new Audio("./sounds/newCoin.mp3");
@@ -133,12 +175,6 @@
       $("#gameOver").css("visibility", "visible");
     }
   });
-
-  for (let i = 0; i <= 3; i++) {
-    let random = Math.floor(Math.random() * 8);
-    let keyBox = $(".key" + i);
-    keyBox.addClass(colors[random]);
-  }
 
   $(".column").on("click", function (e) {
     var col = $(e.currentTarget);

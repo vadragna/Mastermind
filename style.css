@@ -107,6 +107,12 @@ body {
 .green {
   background-color: green;
 }
+.teal {
+  background-color: teal;
+}
+.saddlebrown {
+  background-color: saddlebrown;
+}
 
 h1 {
   font-family: "Chelsea Market", cursive;
@@ -196,7 +202,6 @@ h4 {
 }
 
 .settingsBox {
-  visibility: hidden;
   bottom: 0%;
   z-index: 40;
   position: absolute;
@@ -212,6 +217,14 @@ h4 {
 
 #levels {
   display: flex;
+}
+
+.level {
+  opacity: 0.8;
+}
+
+.level:hover {
+  opacity: 1;
 }
 
 #effects {
