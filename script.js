@@ -1,15 +1,26 @@
 (function () {
   let target = 9;
-  let colors = [
-    "blue",
-    "aqua",
-    "hotpink",
-    "lime",
-    "yellow",
-    "indigo",
-    "red",
-    "black",
-  ];
+  let level = "medium";
+
+  $("#levels")
+    .children()
+    .on("click", function (e) {
+      level = e.currentTarget.id;
+      console.log("level", level);
+    });
+
+  if (level === "medium") {
+    var colors = [
+      "blue",
+      "aqua",
+      "hotpink",
+      "lime",
+      "yellow",
+      "indigo",
+      "red",
+      "black",
+    ];
+  }
   let instructions = $(".instructions");
 
   let newCoinSound = new Audio("./sounds/newCoin.mp3");

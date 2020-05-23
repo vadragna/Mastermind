@@ -11,8 +11,8 @@ body {
 }
 
 #board {
-  margin-top: 180px;
-  bottom: 180px;
+  margin-top: 190px;
+  bottom: 190px;
   margin-left: 50px;
   display: flex;
   position: 10px;
@@ -147,7 +147,7 @@ h4 {
 #info {
   cursor: pointer;
   right: 5%;
-  margin-left: 8px;
+  margin: 0 8px;
 }
 
 .result.legend {
@@ -202,11 +202,20 @@ h4 {
   position: absolute;
   margin-top: 10px;
   width: 370px;
+  height: 330px;
   background-color: thistle;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+#levels {
+  display: flex;
+}
+
+#effects {
+  margin-top: 10px;
 }
 
 #settings {
